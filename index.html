@@ -600,10 +600,71 @@
       .hero-nameblock { flex-direction: column; align-items: flex-start; gap: 20px; }
       .hero-photo { width: 100px; height: 100px; }
     }
+
+    /* ── MEDIA PROJECTS CAROUSEL ── */
+    .media-track-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+    .media-track-wrap::-webkit-scrollbar { display: none; }
+    .media-track-wrap.dragging { cursor: grabbing; }
+    .media-track {
+      display: flex; gap: 20px;
+      padding-bottom: 8px;
+      width: max-content;
+    }
+    .media-card {
+      width: 300px; flex-shrink: 0;
+      border: 0.5px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+    .media-card:hover { border-color: var(--accent); }
+    .media-thumb {
+      width: 100%; height: 200px;
+      object-fit: cover; display: block;
+      background: #0e0e0c;
+      position: relative;
+    }
+    .media-thumb img {
+      width: 100%; height: 200px;
+      object-fit: cover; display: block;
+      background: #0e0e0c;
+    }
+    .media-thumb-placeholder {
+      width: 100%; height: 200px;
+      background: #0e0e0c;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .media-thumb-placeholder span {
+      color: #ffffff;
+      font-size: 32px;
+      font-weight: 300;
+      line-height: 1;
+    }
+    .media-body { padding: 18px 20px; }
+    .media-tag {
+      font-size: 10px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .media-title {
+      font-family: var(--serif); font-size: 18px;
+      font-weight: 400; line-height: 1.2;
+      margin-bottom: 8px; color: var(--fg);
+    }
+    .media-desc {
+      font-size: 12px; color: var(--fg2);
+      line-height: 1.6;
+    }
   </style>
 </head>
 
-<body data-theme="light">
+<body data-theme="dark">
 
 <canvas id="trail-canvas" aria-hidden="true"></canvas>
 <div id="cursor-dot" aria-hidden="true"></div>
@@ -613,10 +674,11 @@
 <nav>
   <a href="#hero" class="nav-logo">Daniela Carrasco</a>
   <ul class="nav-links">
+    <li><a href="#media">Media</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#publications">Publications</a></li>
   </ul>
-  <button id="theme-toggle" aria-label="Toggle dark mode">Dark</button>
+  <button id="theme-toggle" aria-label="Toggle dark mode">Light</button>
 </nav>
 
 <!-- ── HERO ── -->
@@ -664,6 +726,70 @@
 <!-- ── ME ── -->
 
 
+
+<!-- ── MEDIA PROJECTS ── -->
+<section id="media" aria-label="Media Projects">
+  <p class="s-label fi">Media Projects</p>
+  <h2 class="s-title fi">Built with Claude AI &amp; GitHub</h2>
+  <div class="media-track-wrap fi" id="media-wrap">
+    <div class="media-track" id="media-track">
+
+      <a class="media-card" href="https://domingadelsol.github.io/ascii_kamera/" target="_blank" rel="noopener">
+        <div class="media-thumb">
+          <img src="https://api.microlink.io/?url=https://domingadelsol.github.io/ascii_kamera/&screenshot=true&meta=false&embed=screenshot.url" alt="ASCII Kamera screenshot" loading="lazy" />
+        </div>
+        <div class="media-body">
+          <p class="media-tag">Camera · ASCII · Interface</p>
+          <p class="media-title">ASCII Kamera</p>
+          <p class="media-desc">A live camera feed transformed into ASCII characters in real time. Adjust size, color, charset and toggle dark/light mode.</p>
+        </div>
+      </a>
+
+      <a class="media-card" href="https://domingadelsol.github.io/Leelasgrid/" target="_blank" rel="noopener">
+        <div class="media-thumb">
+          <img src="https://api.microlink.io/?url=https://domingadelsol.github.io/Leelasgrid/&screenshot=true&meta=false&embed=screenshot.url" alt="Leela's Grid screenshot" loading="lazy" />
+        </div>
+        <div class="media-body">
+          <p class="media-tag">Grid · Drawing · Interaction</p>
+          <p class="media-title">Leela's Grid</p>
+          <p class="media-desc">An interactive drawing grid — a modular, playful space for creating patterns and visual compositions.</p>
+        </div>
+      </a>
+
+      <a class="media-card" href="https://domingadelsol.github.io/waves/" target="_blank" rel="noopener">
+        <div class="media-thumb">
+          <img src="https://api.microlink.io/?url=https://domingadelsol.github.io/waves/&screenshot=true&meta=false&embed=screenshot.url" alt="Voz & Ondas screenshot" loading="lazy" />
+        </div>
+        <div class="media-body">
+          <p class="media-tag">Sound · Visualization · Voice</p>
+          <p class="media-title">Voz &amp; Ondas</p>
+          <p class="media-desc">Activate the microphone and sing — volume curves the wave, pitch colors it. A real-time voice visualization tool.</p>
+        </div>
+      </a>
+
+      <div class="media-card" style="cursor:default;">
+        <div class="media-thumb-placeholder"><span>+</span></div>
+        <div class="media-body">
+          <p class="media-tag">Coming soon</p>
+          <p class="media-title">Next project</p>
+          <p class="media-desc">More experiments built with Claude AI and GitHub Pages.</p>
+        </div>
+      </div>
+
+      <div class="media-card" style="cursor:default;">
+        <div class="media-thumb-placeholder"><span>+</span></div>
+        <div class="media-body">
+          <p class="media-tag">Coming soon</p>
+          <p class="media-title">Next project</p>
+          <p class="media-desc">More experiments built with Claude AI and GitHub Pages.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <p class="pub-hint fi">← Drag to explore →</p>
+</section>
+
 <!-- ── EXPERIENCE ── -->
 <section id="experience" aria-label="Experience">
   <p class="s-label fi">Experience</p>
@@ -672,7 +798,7 @@
     <!-- 7. Justus-von-Liebig -->
     <div class="exp-item fi">
       <div>
-        <p class="exp-year">Apr 2026 — Present</p>
+        <p class="exp-year">Apr 2026 —</p>
         <p class="exp-role">Interaction UX Design for Public Education</p>
         <p class="exp-company">Justus-von-Liebig Grundschule · Berlin, Germany · On-site</p>
         <p class="exp-desc">Designing and developing an interactive, collective artifact (6m long) in a public school in Berlin. This artifact operates as a social design system grounded in a reverse-technology approach: digital paradigms such as personalized interfaces are translated into a physical environment, democratizing access to participation and experience.</p>
@@ -686,7 +812,7 @@
     <div class="exp-item fi">
       
       <div>
-        <p class="exp-year">2025 · Ongoing</p>
+        <p class="exp-year">2025 —</p>
         <p class="exp-role">AI-Driven Product Designer</p>
         <p class="exp-company">ArtSeek / App</p>
         <p class="exp-desc">Discovery &amp; booking app for event organizers and artists. Emerged from a cooperative of Latin American artists in Berlin who needed a platform to connect with organizers and adapt their work for commercial contexts. Built with Figma Make and AI-generated prototyping under budget constraints.</p>
@@ -699,7 +825,7 @@
     <div class="exp-item fi">
       
       <div>
-        <p class="exp-year">2025 · Ongoing</p>
+        <p class="exp-year">2025 —</p>
         <p class="exp-role">Lead UI/UX &amp; Brand Designer</p>
         <p class="exp-company">Puquelinhue / Cía. Ltda.</p>
         <p class="exp-desc">Rebranding and website redesign for a 75-hectare ecological reserve in Chiloé, Chile. Static, mobile-first design to reduce CO₂ emissions · lightweight formats, monochromatic images, storytelling rooted in the park's biodiversity.</p>
@@ -1000,7 +1126,7 @@
   /* ── THEME ── */
   const body = document.body;
   const btn  = document.getElementById('theme-toggle');
-  let dark = false;
+  let dark = true;
   btn.addEventListener('click', () => {
     dark = !dark;
     body.setAttribute('data-theme', dark ? 'dark' : 'light');
@@ -1144,6 +1270,17 @@
       });
     });
   })();
+
+
+  /* ── MEDIA CAROUSEL DRAG ── */
+  const mediaWrap = document.getElementById('media-wrap');
+  if (mediaWrap) {
+    let mDown = false, mStartX, mScrollLeft;
+    mediaWrap.addEventListener('mousedown',  e => { mDown = true; mediaWrap.classList.add('dragging'); mStartX = e.pageX - mediaWrap.offsetLeft; mScrollLeft = mediaWrap.scrollLeft; });
+    mediaWrap.addEventListener('mouseleave', () => { mDown = false; mediaWrap.classList.remove('dragging'); });
+    mediaWrap.addEventListener('mouseup',    () => { mDown = false; mediaWrap.classList.remove('dragging'); });
+    mediaWrap.addEventListener('mousemove',  e => { if (!mDown) return; e.preventDefault(); const x = e.pageX - mediaWrap.offsetLeft; mediaWrap.scrollLeft = mScrollLeft - (x - mStartX); });
+  }
 
   /* ── COMMUNITY CAROUSEL DRAG ── */
   const comWrap = document.getElementById('com-wrap');
